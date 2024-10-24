@@ -24,6 +24,12 @@ The default scan in Nmap uses TCP SYN to check open ports. It is considered stea
 nmap -sS 192.168.0.1
 ```
 
+## 5. FIN Scan
+A FIN scan sends TCP FIN packets to the target. A closed port is expected to reply with a RST packet, while an open port will ignore the FIN packet. This behavior can be used to determine which ports are open.
+```bash
+nmap -sF 192.168.0.1
+```
+
 ## 5. Detect Operating System (OS Detection)
 Nmap tries to detect the OS running on the target. Use the `-O` option.
 ```bash
@@ -180,10 +186,7 @@ Combining multiple options for fast, detailed results:
 nmap -sS -T4 -v 192.168.0.1
 ```
 
----
-
 ### **Notes:**
 - The `-v` flag increases verbosity.
 - Use `-T0` for the slowest and stealthiest scans, but use `-T4` for speed.
 - Be cautious when using aggressive scans or evasion techniques on networks you do not own!
-```
